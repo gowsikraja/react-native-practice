@@ -14,6 +14,11 @@ const ButtonComponent = (props) => {
             title="Go to Image List"
             onPress={() => props.navigation.navigate('ImageList')}
         />
+
+        <Button
+            title="Go to Counter screen"
+            onPress={() => props.navigation.navigate('Counter')}
+        />
     </View>
 };
 
