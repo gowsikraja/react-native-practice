@@ -19,6 +19,10 @@ const ButtonComponent = (props) => {
             title="Go to Counter screen"
             onPress={() => props.navigation.navigate('Counter')}
         />
+        <Button
+            title="Go to Color screen"
+            onPress={() => props.navigation.navigate('ColorScreen')}
+        />
     </View>
 };
 
