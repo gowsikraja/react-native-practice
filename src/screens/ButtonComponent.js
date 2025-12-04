@@ -1,5 +1,4 @@
-import React from "react";
-import { Button, Text, View, TouchableOpacity } from "react-native";
+import { Button, Text, TouchableOpacity, View } from "react-native";
 
 const ButtonComponent = (props) => {
     return <View>
@@ -22,6 +21,10 @@ const ButtonComponent = (props) => {
         <Button
             title="Go to Color screen"
             onPress={() => props.navigation.navigate('ColorScreen')}
+        />
+        <Button
+            title="Go to Square screen"
+            onPress={() => props.navigation.navigate('Square')}
         />
     </View>
 };

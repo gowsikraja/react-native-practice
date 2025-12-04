@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Button, StyleSheet, View } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { Button, FlatList, StyleSheet, View } from "react-native";
 
 const ColorScreen = () => {
 
