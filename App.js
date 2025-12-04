@@ -8,6 +8,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import ImageList from "./src/screens/ImageList";
 import ListComponent from "./src/screens/ListComponent";
 import SquareScreen from "./src/screens/SquareScreen";
+import TextInputScreen from "./src/screens/TextInputScreen";
 
 
 const navigator = createStackNavigator(
@@ -19,7 +20,9 @@ const navigator = createStackNavigator(
     ImageList: ImageList,
     Counter: CounterScreen,
     ColorScreen: ColorScreen,
-    Square: SquareScreen
+    Square: SquareScreen,
+    TextInput: TextInputScreen
+
   },
   {
     initialRouteName: "Button",

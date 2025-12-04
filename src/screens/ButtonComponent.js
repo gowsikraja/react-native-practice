@@ -26,6 +26,10 @@ const ButtonComponent = (props) => {
             title="Go to Square screen"
             onPress={() => props.navigation.navigate('Square')}
         />
+        <Button
+            title="Go to TextInput screen"
+            onPress={() => props.navigation.navigate('TextInput')}
+        />
     </View>
 };
 
