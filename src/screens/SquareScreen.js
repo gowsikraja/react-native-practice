@@ -1,41 +1,67 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { StyleSheet, View } from 'react-native';
 import SquareColor from '../components/SquareColor';
 
+const COLOR_INCREMENT = 10;
+
 const SquareScreen = () => {
-    const [red, setRed] = useState(0)
-    const [greeen, setGreen] = useState(0)
-    const [blue, setBlue] = useState(0)
 
-    const setColor = (value) => {
-        console.log(value)
+    const reducer = (state, action) => {
+        console.log(state)
+        console.log(action)
+        switch (action.color) {
+            case ('red'):
+                return { ...state, red: state.red + action.amount };
+            case ('green'):
+                return { ...state, green: state.green + action.amount };
+            case ('blue'):
+                return { ...state, blue: state.blue + action.amount };
+            default:
+                return state;
 
-        if (value <= 0) {
-            return 0;
-        } else if (value >= 256) {
-            return 256
         }
-        return value;
     }
 
+    const [state, dispach] = useReducer(reducer, { red: 0, green: 0, blue: 0 })
+
+    const { red, green, blue } = state
+
     return <View>
-        <SquareColor color='Red' onIncrease={() => {
-            setRed(setColor(red + 10))
+        <SquareColor color={`Red : ${red}`}
+            onIncrease={() =>
+                dispach({ color: 'red', amount: COLOR_INCREMENT })
+            }
+            onDecrease={() =>
+                dispach({ color: 'red', amount: -1 * COLOR_INCREMENT })
+            } />
+        <SquareColor color={`Green : ${green}`} onIncrease={() => {
+            dispach(
+                {
+                    color: 'green',
+                    amount: COLOR_INCREMENT
+                })
         }} onDecrease={() => {
-            setRed(setColor(red - 10))
+            dispach(
+                {
+                    color: 'green',
+                    amount: -1 * COLOR_INCREMENT
+                })
         }} />
-        <SquareColor color='Green' onIncrease={() => {
-            setGreen(setColor(greeen + 10))
+        <SquareColor color={`Blue : ${blue}`} onIncrease={() => {
+            dispach(
+                {
+                    color: 'blue',
+                    amount: COLOR_INCREMENT
+                })
         }} onDecrease={() => {
-            setGreen(setColor(greeen - 10))
-        }} />
-        <SquareColor color='Blue' onIncrease={() => {
-            setBlue(setColor(blue + 10))
-        }} onDecrease={() => {
-            setBlue(setColor(blue - 10))
+            dispach(
+                {
+                    color: 'blue',
+                    amount: -1 * COLOR_INCREMENT
+                })
         }} />
 
-        <View style={{ height: 100, width: 100, backgroundColor: `rgb(${red},${greeen},${blue})` }} />
+        <View style={{ height: 100, width: 100, backgroundColor: `rgb(${red},${green},${blue})` }} />
     </View>
 };
 
