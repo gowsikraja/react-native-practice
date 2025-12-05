@@ -1,5 +1,6 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import BusinessSearch from "./src/screens/BusinessSearch";
 import ButtonComponent from "./src/screens/ButtonComponent";
 import ColorScreen from "./src/screens/ColorScreen";
 import Component from "./src/screens/Component";
@@ -21,13 +22,13 @@ const navigator = createStackNavigator(
     Counter: CounterScreen,
     ColorScreen: ColorScreen,
     Square: SquareScreen,
-    TextInput: TextInputScreen
-
+    TextInput: TextInputScreen,
+    MainApp: BusinessSearch
   },
   {
-    initialRouteName: "Button",
+    initialRouteName: "MainApp",
     defaultNavigationOptions: {
-      title: "App",
+      title: "Business Search",
     },
   }
 );
